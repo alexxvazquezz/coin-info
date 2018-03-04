@@ -1,0 +1,22 @@
+{
+  "name": "coin-info",
+  "version": "1.0.0",
+  "description": "Crypto Price Information",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexxvazquezz/coin-info.git"
+  },
+  "author": "Alejandro Vazquez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexxvazquezz/coin-info/issues"
+  },
+  "homepage": "https://github.com/alexxvazquezz/coin-info#readme",
+  "dependencies": {
+    "coinbase": "^2.0.7"
+  }
+}
