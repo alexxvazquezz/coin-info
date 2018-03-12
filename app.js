@@ -4,12 +4,17 @@ const http = require('http');
 const hostname = '127.0.0.1';
 const port = 3000;
 const router = require('./routes.js');
+const coin = require('./coin.js')
 
 
 // Create a server
-http.createServer((req, res) => {
+const server = http.createServer((req, res) => {
+  router.css(req, res);
   router.home(req, res);
-}).listen(port, hostname);
+  router.coinRoute(req, res)
+}).listen(port, hostname, function() {
+  server.keepAliveTimeout = 4;
+});
 console.log(`Listening at ${hostname}:${port}/`);
 
 
