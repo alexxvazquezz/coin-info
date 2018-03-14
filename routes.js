@@ -4,26 +4,26 @@ const commonHeaders = {"Content-type": "text/html"};
 const cssHeader = {'Content-type': 'text/css'}
 const fs = require('fs');
 const Coin = require('./coin.js')
-
-function loadCss(req, res) {
-  if(req.url.indexOf(".css") !== -1){
-    var cssFile = fs.readFileSync(`.${req.url}`);
-    res.writeHead(200, cssHeader);
-    res.write(cssFile);
-    res.end();
-  }
-}
+//
+// function loadCss(req, res) {
+//   if(req.url.indexOf(".css") !== -1){
+//     var cssFile = fs.readFileSync(`.${req.url}`);
+//     res.writeHead(200, cssHeader);
+//     res.write(cssFile);
+//     res.end();
+//   }
+// }
 
 function home(req, res) {
   if (req.url === '/') {
-    res.writeHead(200, {
-    'Content-type': 'text/html',
-    "CB-VERSION" : "2015-04-08" });
-    render.view("header", {}, res);
-    render.view("search", {}, res);
-    // renderer.view('search', {}, res);
-    // renderer.view('footer', {}, res);
-    res.end();
+    if(req.method.toLowerCase() === "get") {
+      res.writeHead(200, {
+      'Content-type': 'text/html',
+      "CB-VERSION" : "2015-04-08" });
+      render.view("header", {}, res);
+      render.view("dropdown", {}, res);
+      res.end();
+    }
   }
 
 }
@@ -62,5 +62,5 @@ function coinRoute(req, res) {
 }
 
 module.exports.home = home;
-module.exports.css = loadCss;
+// module.exports.css = loadCss;
 module.exports.coinRoute = coinRoute;;

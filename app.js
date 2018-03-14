@@ -9,7 +9,7 @@ const coin = require('./coin.js')
 
 // Create a server
 const server = http.createServer((req, res) => {
-  router.css(req, res);
+  // router.css(req, res);
   router.home(req, res);
   router.coinRoute(req, res)
 }).listen(port, hostname, function() {
