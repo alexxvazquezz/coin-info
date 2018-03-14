@@ -16,12 +16,11 @@ function loadCss(req, res) {
 
 function home(req, res) {
   if (req.url === '/') {
-
-
     res.writeHead(200, {
     'Content-type': 'text/html',
     "CB-VERSION" : "2015-04-08" });
     render.view("header", {}, res);
+    render.view("search", {}, res);
     // renderer.view('search', {}, res);
     // renderer.view('footer', {}, res);
     res.end();
