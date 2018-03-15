@@ -4,6 +4,7 @@ const commonHeaders = {"Content-type": "text/html"};
 const cssHeader = {'Content-type': 'text/css'}
 const fs = require('fs');
 const Coin = require('./coin.js')
+const queryString = require('querystring');
 //
 // function loadCss(req, res) {
 //   if(req.url.indexOf(".css") !== -1){
@@ -23,6 +24,13 @@ function home(req, res) {
       render.view("header", {}, res);
       render.view("dropdown", {}, res);
       res.end();
+    } else {
+      // Get post from body
+      req.on("data", function(postBody) {
+        var query = queryString.parse(postBody.toString());
+        res.writeHead(303, {"Location": "/" + query.Crytpo});
+        res.end();
+      })
     }
   }
 
@@ -45,7 +53,9 @@ function coinRoute(req, res) {
       //   currency: coindDa.data.currency,
       //   cryptoPrice: coinDa.data.amount
       //     }
-        res.write("Current BTC Price: " + coinDa.data.amount)
+        res.write(`Crypto: ${coinDa.data.base}\n`);
+        res.write(`Currency: ${coinDa.data.currency}\n`)
+        res.write(`Buy Price: ${coinDa.data.amount}`);
         //res.write("The bitcoin price is: " + values.cryptoPrice);
         res.end();
     });
