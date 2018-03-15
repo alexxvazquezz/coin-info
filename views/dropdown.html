@@ -1,11 +1,45 @@
-<div id="coinDropDown">
-  <form action="/" method="post">
-    <select class="dropDown" name="Crytpo">
-        <option value="BTC-USD">BTC</option>
-        <option value="LTC-USD">LTC</option>
-        <option value="BCH-USD">BCH</option>
-        <option value="ETH-USD">ETH</option>
-    </select>
-    <input type="submit" value="Submit">
-  </form>
-</div>
+<style>
+    .btn-group {
+        position: relative;
+        margin:0 auto;
+        text-align: left;
+        clear: left;
+        width: 800px;
+        min-height: 600px;
+        height: auto;
+        z-index: 0;
+
+    }
+
+    .btn-group button {
+        background-color: #4CAF50;
+        border: 1px solid green;
+        color: white;
+        padding: 10px 24px;
+        cursor: pointer;
+        float: left;
+    }
+
+    .btn-group button:not(:last-child) {
+        border-right: none;
+    }
+
+    .btn-group:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .btn-group button:hover {
+        background-color: #3e8e41;
+    }
+</style>
+
+<form action="/" method="post">
+    <div class="btn-group">
+        <button name="Crypto" value="BTC-USD">Bitcoin</button>
+        <button name="Crypto" value="LTC-USD">LitCoin</button>
+        <button name="Crypto" value="BCH-USD">BitCash</button>
+        <button name="Crypto" value="ETH-USD">Ethereum</button>
+    </div>
+</form>

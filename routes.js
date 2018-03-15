@@ -28,7 +28,7 @@ function home(req, res) {
       // Get post from body
       req.on("data", function(postBody) {
         var query = queryString.parse(postBody.toString());
-        res.writeHead(303, {"Location": "/" + query.Crytpo});
+        res.writeHead(303, {"Location": "/" + query.Crypto});
         res.end();
       })
     }
